@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Simple Item Adder</title>
+    <link rel="stylesheet" href="/css/tailwind.css" />
+</head>
+
+<body>
+    <div class="flex flex-col items-center justify-center h-screen">
+        <h1 class="text-3xl font-bold mb-8">Simple Item Adder</h1>
+        <form action="/" method="POST" class="flex items-center mb-4">
+            <label for="item" class="mr-2">New item:</label>
+            <input type="text" name="item" id="item" class="border rounded py-1 px-2" />
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded ml-2">
+                Add
+            </button>
+        </form>
+        <ul class="text-xl">
+            <% items.forEach(function(item) { %>
+                <li class="mb-2">
+                    <%= item.title %>
+                </li>
+                <% }); %>
+        </ul>
+    </div>
+</body>
+
+</html>
