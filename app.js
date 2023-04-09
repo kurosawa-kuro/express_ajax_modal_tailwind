@@ -13,6 +13,7 @@ const items = [
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -22,10 +23,10 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const newItem = {
         id: items.length + 1,
-        title: req.body.item,
+        title: req.body.title,
     };
     items.push(newItem);
-    res.redirect('/');
+    res.status(201).json(newItem);
 });
 
 app.listen(port, () => {
